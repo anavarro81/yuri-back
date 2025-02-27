@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 require("dotenv/config");
-const router_1 = __importDefault(require("./router"));
+// import router from './router'
 const bd_1 = require("./src/config/bd");
 const cors_2 = require("./src/config/cors");
 // Realizamos la conexión a la base de datos
@@ -16,5 +16,8 @@ const app = (0, express_1.default)();
 app.use((0, cors_1.default)(cors_2.corsConfig));
 // Leer datos de formularios
 app.use(express_1.default.json());
-app.use('/', router_1.default);
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+// app.use('/', router)
 exports.default = app;
