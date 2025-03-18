@@ -1,0 +1,161 @@
+[
+    {
+        "serviceName": "Arona",
+        "location": "Terrazas",
+        "maxDepth": [-35],
+        "divingType": "Recreativo\/Técnico",
+        "Notes": "Pecio\/Fondo con Boya",
+        "price": 20
+    },
+    {
+        "serviceName": "Remolcador Arico",
+        "location": "La Garita",
+        "maxDepth": [-41],
+        "divingType": "Técnico",
+        "Notes": "Pecio",
+        "price": 20
+    },
+    {
+        "serviceName": "Coreano Chien Chuen",
+        "location": "Taliarte",
+        "maxDepth": [-38],
+        "divingType": "Recreativo\/Técnico",
+        "Notes": "Pecio\/Fondeo con Boya",
+        "price": 20
+    },
+    {
+        "serviceName": "Cueva de los Chuchos ",
+        "location": "Terrazas",
+        "maxDepth": [-15],
+        "divingType": "Recreativo",
+        "Notes": "Cerca de EDAR\/Paisaje",
+        "price": 20
+    },
+    {
+        "serviceName": "Tufia Roncadores",
+        "location": "Tufia",
+        "maxDepth": [-22],
+        "divingType": "Recreativo",
+        "price": 20
+    },
+    {
+        "serviceName": "Baja de Gando",
+        "location": "Gando",
+        "maxDepth": [-39, -32, -22],
+        "divingType": "Recreativo",
+        "Notes": "Varios recorridos posibles",
+        "price": 20
+    },
+    {
+        "serviceName": "Francés Rocroi",
+        "location": "Gando",
+        "maxDepth": [-27],
+        "divingType": "Recreativo",
+        "Notes": "Pecio",
+        "price": 20
+    },
+    {
+        "serviceName": "Alfonso XII",
+        "location": "Gando",
+        "maxDepth": [-46],
+        "divingType": "Técnico",
+        "Notes": "Pecio",
+        "price": 20
+    },
+    {
+        "serviceName": "Ville de Para",
+        "location": "Gando",
+        "maxDepth": [-43],
+        "divingType": "Recreativo\/Técnico",
+        "Notes": "Pecio",
+        "price": 20
+    },
+    {
+        "serviceName": "Monte Isabela",
+        "location": "Gando",
+        "maxDepth": [-70],
+        "divingType": "Técnico",
+        "Notes": "Pecio",
+        "price": 20
+    },
+    {
+        "serviceName": "Avioneta DC-3",
+        "location": "Vargas",
+        "maxDepth": [-30],
+        "divingType": "Recreativo",
+        "Notes": "Pecio avión",
+        "price": 25
+    },
+    {
+        "serviceName": "Roque de Arinaga",
+        "location": "Arinaga",
+        "maxDepth": [-20],
+        "divingType": "Recreativo",
+        "Notes": "Paisajes",
+        "price": 25
+    },
+    {
+        "serviceName": "Plasencia",
+        "location": "Pozo Izquierdo",
+        "maxDepth": [-35],
+        "divingType": "Recreativo",
+        "Notes": "Pecio",
+        "price": 25
+    },
+    {
+        "serviceName": "Roque Tortuga",
+        "location": "Isleta",
+        "maxDepth": [-12],
+        "divingType": "Recreativo",
+        "Notes": "Paisajes",
+        "price": 25
+    },
+    {
+        "serviceName": "Baja Fernando",
+        "location": "Confital",
+        "maxDepth": [-22],
+        "divingType": "Recreativo",
+        "Notes": "Paisajes",
+        "price": 25
+    },
+    {
+        "serviceName": "Catedral",
+        "location": "Isleta",
+        "maxDepth": [-40],
+        "divingType": "Recreativo\/Técnico",
+        "Notes": "Paisajes",
+        "price": 25
+    },
+    {
+        "serviceName": "Roque Ceniciento",
+        "location": "Isleta",
+        "maxDepth": [-16],
+        "divingType": "Recreativo",
+        "Notes": "Paisajes",
+        "price": 25
+    },
+    {
+        "serviceName": "Kinder Island",
+        "location": "Muelle la luz",
+        "maxDepth": [-35],
+        "divingType": "Recreativo",
+        "Notes": "Pecio",
+        "price": 25
+    },
+    {
+        "serviceName": "Angela Apando",
+        "location": "Isleta",
+        "maxDepth": [-22],
+        "divingType": "Recreativo\/Técnico",
+        "Notes": "Pecio",
+        "price": 25
+    },
+    {
+        "serviceName": "Fantasma",
+        "location": "Vegueta",
+        "maxDepth": [-55],
+        "divingType": "Técnico",
+        "Notes": "Pecio",
+        "price": 25
+    }
+]

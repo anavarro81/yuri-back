@@ -4,6 +4,7 @@ import 'dotenv/config'
 import { connectDB } from './src/config/bd'
 import { corsConfig } from './src/config/cors'
 import testimonialsRoutes from './src/routes/testimonials.route'
+import serviceRouter from './src/routes/services.route'
 
 // Realizamos la conexión a la base de datos
 connectDB()
@@ -21,5 +22,6 @@ app.get('/', (req, res) => {
 })
 
 app.use('/testimonials', testimonialsRoutes)
+app.use('/services', serviceRouter)
 
 export default app
