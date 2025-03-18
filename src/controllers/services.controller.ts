@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import ServiceModel from "../models/services.model";
 
-export const loadServices = async (req: Request, res: Response): Promise<void> => {
+const loadServices = async (req: Request, res: Response): Promise<void> => {
 
     try {
         
@@ -21,7 +21,9 @@ export const loadServices = async (req: Request, res: Response): Promise<void> =
 
 }
 
-export const getAllServices = async (req: Request, res: Response): Promise<void> => {
+const getAllServices = async (req: Request, res: Response): Promise<void> => {
+
+    console.log('Estoy en getAllServices');
 
     try {
         const services = await ServiceModel.find();
@@ -31,3 +33,5 @@ export const getAllServices = async (req: Request, res: Response): Promise<void>
         res.status(500).json({ message: error });
     }
 }
+
+export {  loadServices, getAllServices};

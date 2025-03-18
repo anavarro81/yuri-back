@@ -1,9 +1,14 @@
+import express from "express";
 import {loadServices, getAllServices} from "../controllers/services.controller";
-import { Router } from "express";
 
-const serviceRouter = Router();
+
+const serviceRouter = express.Router();
+
+console.log('Estoy en services.route.ts')
 
 serviceRouter.post('/load-services', loadServices);
-serviceRouter.get('/get-all-services', getAllServices);
+serviceRouter.get("/get-services", getAllServices);
+
+
 
 export default serviceRouter;
