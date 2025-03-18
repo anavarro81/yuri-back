@@ -21,3 +21,13 @@ export const loadServices = async (req: Request, res: Response): Promise<void> =
 
 }
 
+export const getAllServices = async (req: Request, res: Response): Promise<void> => {
+
+    try {
+        const services = await ServiceModel.find();
+        res.status(200).json(services);
+    } catch (error) {
+        console.log('error al obtener los servicios', error);
+        res.status(500).json({ message: error });
+    }
+}
