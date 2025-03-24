@@ -17,9 +17,9 @@ app.use(cors(corsConfig))
 // Leer datos de formularios
 app.use(express.json())
 
-// app.get('/', (req, res) => {
-//   res.send('Servidor funcionando...')  
-// })
+app.get('/', (req, res) => {
+  res.send('Servidor funcionando!!!')  
+})
 
 app.use('/services', serviceRouter)
 app.use('/testimonials', testimonialsRoutes)

@@ -6,7 +6,8 @@
     "start": "nodemon index.ts",
     "build": "rimraf dist && tsc",
     "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add dist"
+    "add-build": "git add dist",
+    "prepare": "husky install"
   },
   "pre-commit": [
     "ts.check",
@@ -31,6 +32,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.5",
+    "husky": "^9.1.7",
     "pre-commit": "^1.2.2",
     "typescript": "^5.7.3"
   }
