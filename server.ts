@@ -19,6 +19,8 @@ app.use(cors(corsConfig))
 // Leer datos de formularios
 app.use(express.json())
 
+app.use('/download', express.static('public/documentation'))
+
 // app.get('/', (req, res) => {
 //   res.send('Servidor funcionando!!!')  
 // })

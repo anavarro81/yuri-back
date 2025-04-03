@@ -48,16 +48,16 @@ const getDocument = async (req: Request, res: Response): Promise<void> => {
 
 const getAllDocuments = async (req: Request, res: Response): Promise<void> => {
 
-    // 
-    const directoryPath = path.join(process.cwd(), 'public/documentation');
-
-    try {
-        const files = await fs.promises.readdir(directoryPath); 
-        console.log('files', files);
-        res.status(200).json(files);
+    try {        
+        const documents = await DocumentationModel.find();
+        res.status(200).json({ message: 'Documentos encontrados', data: documents });
+        
     } catch (error) {
-        res.status(500).json({ message: 'Error al obtener los archivos' });
+        console.error('Error al obtener los documentos:', error);
+        res.status(500).json({ message: 'Error al obtener los documentos', error: error });
     }
+    
+
 
 }
 
@@ -77,7 +77,7 @@ const uploadDocument = async (req: Request, res: Response): Promise<void> => {
             description,
             size,
             filename,
-            downloadLink: `public/documentacion/${originalname}`
+            downloadLink: `/download/${originalname}`
         };
         
          console.log('fileData >> ' , fileData) 

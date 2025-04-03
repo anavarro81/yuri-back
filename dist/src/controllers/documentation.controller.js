@@ -44,15 +44,13 @@ const getDocument = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 });
 exports.getDocument = getDocument;
 const getAllDocuments = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    // 
-    const directoryPath = path_1.default.join(process.cwd(), 'public/documentation');
     try {
-        const files = yield fs_1.default.promises.readdir(directoryPath);
-        console.log('files', files);
-        res.status(200).json(files);
+        const documents = yield documentation_model_1.default.find();
+        res.status(200).json({ message: 'Documentos encontrados', data: documents });
     }
     catch (error) {
-        res.status(500).json({ message: 'Error al obtener los archivos' });
+        console.error('Error al obtener los documentos:', error);
+        res.status(500).json({ message: 'Error al obtener los documentos', error: error });
     }
 });
 exports.getAllDocuments = getAllDocuments;
@@ -68,7 +66,7 @@ const uploadDocument = (req, res) => __awaiter(void 0, void 0, void 0, function*
             description,
             size,
             filename,
-            downloadLink: `public/documentacion/${originalname}`
+            downloadLink: `/download/${originalname}`
         };
         console.log('fileData >> ', fileData);
         const newDoc = new documentation_model_1.default(fileData);
