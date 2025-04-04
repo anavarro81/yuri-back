@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import DocumentationModel from "../models/documentation.model";
+import {formatFileSize} from "../utils/dataConverter";
 import path from "path";
 import fs from "fs";
 
@@ -7,7 +8,7 @@ interface FileDataI {
     type: string;
     name: string;
     description: string;
-    size: number;
+    size: string;
     filename: string;
     downloadLink: string;
 }
@@ -49,8 +50,9 @@ const getDocument = async (req: Request, res: Response): Promise<void> => {
 const getAllDocuments = async (req: Request, res: Response): Promise<void> => {
 
     try {        
-        const documents = await DocumentationModel.find();
-        res.status(200).json({ message: 'Documentos encontrados', data: documents });
+        const documents = await DocumentationModel.find();       
+
+        res.status(200).json({ documents });
         
     } catch (error) {
         console.error('Error al obtener los documentos:', error);
@@ -64,8 +66,14 @@ const getAllDocuments = async (req: Request, res: Response): Promise<void> => {
 const uploadDocument = async (req: Request, res: Response): Promise<void> => {
 
     const file = req.file as Express.Multer.File;
-    const { mimetype, originalname, size, filename } = file;
+    let { mimetype, originalname, size, filename } = file;
     const { description } = req.body;
+
+    
+    
+    
+
+        // Convertir a KB
     
     try {       
     
@@ -75,7 +83,7 @@ const uploadDocument = async (req: Request, res: Response): Promise<void> => {
             type: mimetype.split('/')[1],
             name: originalname,
             description,
-            size,
+            size: formatFileSize(size),
             filename,
             downloadLink: `/download/${originalname}`
         };

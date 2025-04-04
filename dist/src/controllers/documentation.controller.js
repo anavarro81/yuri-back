@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.uploadDocument = exports.getAllDocuments = exports.getDocument = void 0;
 const documentation_model_1 = __importDefault(require("../models/documentation.model"));
+const dataConverter_1 = require("../utils/dataConverter");
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const getDocument = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -46,7 +47,7 @@ exports.getDocument = getDocument;
 const getAllDocuments = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const documents = yield documentation_model_1.default.find();
-        res.status(200).json({ message: 'Documentos encontrados', data: documents });
+        res.status(200).json({ documents });
     }
     catch (error) {
         console.error('Error al obtener los documentos:', error);
@@ -56,15 +57,16 @@ const getAllDocuments = (req, res) => __awaiter(void 0, void 0, void 0, function
 exports.getAllDocuments = getAllDocuments;
 const uploadDocument = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const file = req.file;
-    const { mimetype, originalname, size, filename } = file;
+    let { mimetype, originalname, size, filename } = file;
     const { description } = req.body;
+    // Convertir a KB
     try {
         // Se indica a TS que req.file es de tipo Express.Multer.File para hacer el destructuring | Type Assertion
         const fileData = {
             type: mimetype.split('/')[1],
             name: originalname,
             description,
-            size,
+            size: (0, dataConverter_1.formatFileSize)(size),
             filename,
             downloadLink: `/download/${originalname}`
         };

@@ -1,7 +1,7 @@
 import express from "express";
 import { getDocument, getAllDocuments, uploadDocument } from "../controllers/documentation.controller";
 import {upload} from "../config/multer.config";
-import {validateDocumentData} from "../utils/validateDocumentData";
+import {validateDocumentData} from "../utils/dataValidator";
 
 
 const documentationRouter = express.Router();

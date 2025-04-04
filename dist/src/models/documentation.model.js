@@ -20,9 +20,8 @@ const DocumentationSchema = new mongoose_1.Schema({
         trim: true
     },
     size: {
-        type: Number,
+        type: String,
         required: [true, 'El tamaño del documento es requerido'],
-        min: [0, 'El tamaño del documento no puede ser menor a 0']
     },
     filename: {
         type: String,

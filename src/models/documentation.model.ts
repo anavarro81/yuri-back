@@ -22,9 +22,8 @@ const DocumentationSchema = new Schema({
     },
 
     size: {
-        type: Number,
-        required: [true, 'El tamaño del documento es requerido'],
-        min: [0, 'El tamaño del documento no puede ser menor a 0']
+        type: String,
+        required: [true, 'El tamaño del documento es requerido'],        
     },
 
     filename: {
