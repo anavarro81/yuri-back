@@ -17,6 +17,7 @@ const documentation_model_1 = __importDefault(require("../models/documentation.m
 const dataConverter_1 = require("../utils/dataConverter");
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
+const dataSanitizer_1 = require("../utils/dataSanitizer");
 const getDocument = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const filename = req.params.filename;
     if (!filename) {
@@ -59,16 +60,15 @@ const uploadDocument = (req, res) => __awaiter(void 0, void 0, void 0, function*
     const file = req.file;
     let { mimetype, originalname, size, filename } = file;
     const { description } = req.body;
-    // Convertir a KB
     try {
         // Se indica a TS que req.file es de tipo Express.Multer.File para hacer el destructuring | Type Assertion
         const fileData = {
             type: mimetype.split('/')[1],
-            name: originalname,
+            name: (0, dataSanitizer_1.sanitizeDocumentName)(originalname),
             description,
             size: (0, dataConverter_1.formatFileSize)(size),
             filename,
-            downloadLink: `/download/${originalname}`
+            downloadLink: `/download/${filename}`
         };
         console.log('fileData >> ', fileData);
         const newDoc = new documentation_model_1.default(fileData);

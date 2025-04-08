@@ -13,13 +13,12 @@ const TestimonialSchema = new mongoose_1.Schema({
     },
     diverType: {
         type: String,
-        required: [true, 'El tipo de buzo es requerido'],
+        required: false,
         maxlength: [30, 'El tipo de buzo no puede tener mas de 30 caracteres'],
     },
     testimonial: {
         type: String,
-        required: [true, 'El testimonio es requerido'],
-        maxlength: [300, 'El testimonio no puede tener mas de 200 caracteres'],
+        required: [true, 'El testimonio es requerido']
     }
 }, {
     timestamps: true,

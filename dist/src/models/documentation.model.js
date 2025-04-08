@@ -30,7 +30,9 @@ const DocumentationSchema = new mongoose_1.Schema({
     downloadLink: {
         type: String,
         required: [true, 'El link de descarga es requerido'],
-    }
+    },
+}, {
+    timestamps: true,
 });
 const DocumentationModel = (0, mongoose_1.model)("Documentation", DocumentationSchema);
 exports.default = DocumentationModel;

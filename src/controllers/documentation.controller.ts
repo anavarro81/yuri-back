@@ -3,7 +3,7 @@ import DocumentationModel from "../models/documentation.model";
 import {formatFileSize} from "../utils/dataConverter";
 import path from "path";
 import fs from "fs";
-
+import {sanitizeDocumentName} from "../utils/dataSanitizer";
 interface FileDataI {
     type: string;
     name: string;
@@ -70,22 +70,17 @@ const uploadDocument = async (req: Request, res: Response): Promise<void> => {
     const { description } = req.body;
 
     
-    
-    
-
-        // Convertir a KB
-    
     try {       
     
         
         // Se indica a TS que req.file es de tipo Express.Multer.File para hacer el destructuring | Type Assertion
         const fileData: FileDataI = {
             type: mimetype.split('/')[1],
-            name: originalname,
+            name: sanitizeDocumentName(originalname),
             description,
             size: formatFileSize(size),
             filename,
-            downloadLink: `/download/${originalname}`
+            downloadLink: `/download/${filename}`
         };
         
          console.log('fileData >> ' , fileData) 

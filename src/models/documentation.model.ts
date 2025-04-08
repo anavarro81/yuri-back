@@ -34,7 +34,11 @@ const DocumentationSchema = new Schema({
     downloadLink: {
         type: String,
         required: [true, 'El link de descarga es requerido'],
-    }
+    }, 
+    
+}, 
+{
+    timestamps: true,
 })
 
 const DocumentationModel = model("Documentation", DocumentationSchema);

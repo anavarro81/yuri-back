@@ -42,3 +42,19 @@ export const sanitizeFileName = (filename: string) :string => {
     return name + extension.toLowerCase();
   }
   
+  export const sanitizeDocumentName = (name: string) :string => {
+
+    console.log('name a sanitizar', name)
+
+    // Se convierte a formato latin1 para evitar problemas con caracteres especiales
+    const buffer = Buffer.from(name, 'latin1'); 
+    
+    // Lo convierte a UTF-8
+    const utf8Name = buffer.toString('utf8');
+
+    console.log('utf8Name', utf8Name)
+
+    return utf8Name
+
+  
+  }

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sanitizeFileName = void 0;
+exports.sanitizeDocumentName = exports.sanitizeFileName = void 0;
 // Para guardar el archivo en la carpeta public, sin caracteres especiales, espacios o acentos en el nombre del archivo, 
 // se utiliza la función sanitizeFileName. 
 // Esta función toma el nombre del archivo como argumento y devuelve un nombre de archivo seguro para usar en el sistema de archivos.
@@ -24,3 +24,13 @@ const sanitizeFileName = (filename) => {
     return name + extension.toLowerCase();
 };
 exports.sanitizeFileName = sanitizeFileName;
+const sanitizeDocumentName = (name) => {
+    console.log('name a sanitizar', name);
+    // Se convierte a formato latin1 para evitar problemas con caracteres especiales
+    const buffer = Buffer.from(name, 'latin1');
+    // Lo convierte a UTF-8
+    const utf8Name = buffer.toString('utf8');
+    console.log('utf8Name', utf8Name);
+    return utf8Name;
+};
+exports.sanitizeDocumentName = sanitizeDocumentName;

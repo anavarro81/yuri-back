@@ -16,7 +16,13 @@ exports.getTestimonials = exports.deleteAllTestimonials = exports.loadTestimonia
 const testimonials_model_1 = __importDefault(require("../models/testimonials.model"));
 const loadTestimonials = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        // Borramos la base de datos para volver a cargarla de nuevo. 
+        const deletedTestimonials = yield testimonials_model_1.default.deleteMany({});
+        if (deletedTestimonials) {
+            console.log('Se ha borrado la base de datos de testimonios');
+        }
         const insertedTestimonials = yield testimonials_model_1.default.insertMany(req.body);
+        console.log('insertedTestimonials ', insertedTestimonials);
         if (insertedTestimonials) {
             res.status(201).json({
                 message: `Se han insertado ${insertedTestimonials.length} testimonios`,

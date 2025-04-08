@@ -5,8 +5,17 @@ import Testimonial from "../models/testimonials.model";
 const loadTestimonials = async (req: Request, res: Response): Promise<void> => {
 
     try {
+
+        // Borramos la base de datos para volver a cargarla de nuevo. 
+        const deletedTestimonials = await Testimonial.deleteMany({})
+
+        if(deletedTestimonials) {
+            console.log('Se ha borrado la base de datos de testimonios')
+        }
         
         const insertedTestimonials = await Testimonial.insertMany(req.body)
+
+        console.log('insertedTestimonials ', insertedTestimonials)
 
         if (insertedTestimonials) {
                 res.status(201).json({
