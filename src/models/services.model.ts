@@ -16,10 +16,31 @@ const ServiceSchema = new Schema({
         },
 
         divingType: {
-            type: String,
-            required: [true, 'El tipo de buceo es requerido'],
-            enum: ['Recreativo', 'Técnico', 'Recreativo/Técnico'],
+            
+                type: [String], // Define un array de strings
+                required: [true, 'El tipo de buceo es requerido'],
+                enum: ['recreativa', 'técnica'],
+                validate: [
+                    {
+                        validator: (diveType: string[]) => {
+                            return diveType.length >= 1 && diveType.length <= 2;
+                        },
+                        message: 'El array de tipo de salida tiene que tener entre uno y dos elementos'
+                    },
+                    {
+                        validator: (diveType: string[]) => {
+                            return diveType.every(type => ['recreativa', 'técnica'].includes(type));
+                        },
+                        message: 'Todos los elementos deben ser "recreativa" o "tecnica'
+                    }
+                    
+
+                ]
+            
         },
+
+            
+        
 
         description: {
             type: String,

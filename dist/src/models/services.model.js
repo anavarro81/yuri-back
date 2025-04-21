@@ -14,9 +14,23 @@ const ServiceSchema = new mongoose_1.Schema({
         default: ''
     },
     divingType: {
-        type: String,
+        type: [String], // Define un array de strings
         required: [true, 'El tipo de buceo es requerido'],
-        enum: ['Recreativo', 'Técnico', 'Recreativo/Técnico'],
+        enum: ['recreativa', 'técnica'],
+        validate: [
+            {
+                validator: (diveType) => {
+                    return diveType.length >= 1 && diveType.length <= 2;
+                },
+                message: 'El array de tipo de salida tiene que tener entre uno y dos elementos'
+            },
+            {
+                validator: (diveType) => {
+                    return diveType.every(type => ['recreativa', 'técnica'].includes(type));
+                },
+                message: 'Todos los elementos deben ser "recreativa" o "tecnica'
+            }
+        ]
     },
     description: {
         type: String,
